@@ -1,0 +1,114 @@
+/* CSS */
+body {
+  background: #000000;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.login-box {
+  position:absolute; 
+  top: 50%;
+  left: 50%;  
+  width: 290px;
+  height: 330px;
+  padding:40px 40px 50px;
+  transform: translate(-50%,-50%);
+  background: #121212;
+  border-radius: 25px;
+  box-shadow: 1px 1px 15px #ff6b5b;
+    
+  
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: -5px;
+  color: #ff6b5b;
+  text-align: center;
+  font-size: 28px;
+}
+
+.user-box {
+  position: relative;
+
+}
+
+.user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #e9eeee;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #e9eeee;
+  background: transparent;
+  outline: none;
+}
+
+.user-box label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #e9eeee;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.check-box input{
+  width: 20px;
+  height: 15px;
+}
+
+.check-box label{
+  font-family: 'Poppins', sans-serif;
+  padding: 10px 0;
+  font-size: 17.5px;
+  color: #e9eeee;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color:#ff6b5b;
+  font-size: 12px;
+}
+
+.button-box input{
+      
+      color: #121212;
+      padding: 12px;
+      width: 100%;
+      margin: 30px 0px;
+      border-radius: 999px; 
+      font-size: 16px;
+      font-weight: 600;
+      transition: background-color 0.3s ease, 
+      transform0.2s ease; 
+}
+.button-box input:hover{
+ background-color:#c14b3e;
+ color: #e9eeee;
+ 
+}
+
+.Sign p {
+  color: #e9eeee;
+  text-align: center;
+  font-size: 17.5px;
+  position: relative;
+  bottom: 20px;
+}
+
+.Sign p a {
+  color: #ff6b5b
+}
+
+.Sign a:hover {
+   color:#a32b1e
+}

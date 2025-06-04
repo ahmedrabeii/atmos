@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="cart-style.css">
+</head>
+<body>
+        
+    <!-- NavBar Section -->
+    <div class="navbar">
+    <a href="image/Thank You.jpg" class="logo">
+        <img src="image/logo.png" alt="This Is LOGO">
+    </a>
+    
+    <ul class="nav-links">
+        <li><a href="index3.html" class="go-to-home-btn">Back To Home</a></li>
+        <li><a href="collection.html" class="go-to-collection-btn">Back To Collections</a></li>
+    </ul>
+    </div>
+
+    <!-- cart -->
+    <div id="cart-message" class="cart">
+        <h2>Your Cart</h2>
+    <div id="cart-items" class="cart-items">
+        <p class="empty">Your cart is empty.</p>
+    </div>
+    <p>
+        <span class="total-label">Total:</span> 
+        <span class="dollar-sign">$</span>
+        <span id="cart-total" class="total-amount">0.00</span>
+      </p>
+    </div>
+    
+
+    <div class="cart-section">
+        <h2>Your Cart</h2>
+        <div id="cart-items"></div>
+       
+      </div>
+
+
+    <!-- Payment -->
+    <div class="payment-details">
+    
+        <h2>Payment Details</h2>
+    <div class="payment-grid">
+    
+    <div>
+        <label for="card-name">Name on Card</label>
+        <input id="card-name" type="text" placeholder="John Doe" required="">
+    </div>
+    
+    <div>
+        <label for="card-number">Card Number</label>
+        <input id="card-number" type="text" placeholder="1111-2222-3333-4444" required="">
+    </div>
+    
+    <div>
+        <label for="expiry">Expiry Date</label>
+        <input id="expiry" type="text" placeholder="MM/YY" required="">
+    </div>
+    
+    <div>
+        <label for="cvv">CVV</label>
+        <input id="cvv" type="text" placeholder="123" required="">
+    </div>
+    </div>
+    
+    <div class="addres">
+        <label for="addr">Addres</label>
+        <textarea id="addr" placeholder="123 Main St, City, Country" required=""></textarea>
+    </div>
+        <button class="pay-btn">Pay Now</button>
+    </div>
+    </div>   
+     
+ <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotal = document.getElementById('cart-total');
+
+    function renderCart() {
+        if (cart.length === 0) {
+            cartItemsContainer.innerHTML = "<p class='empty'>Your cart is empty.</p>";
+            cartTotal.textContent = "0.00";
+            return;
+        }
+
+        cartItemsContainer.innerHTML = "";
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            const itemElement = document.createElement('div');
+            itemElement.classList.add('cart-item');
+            itemElement.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" width="100">
+                <div class="item-details">
+                    <h2>${item.name}</h2>
+                    <p>Price:$${item.price}</p>
+                </div>
+                <button class="delete-btn" onclick="deleteItem(${index})">Delete</button>
+            `;
+            cartItemsContainer.appendChild(itemElement);
+            total += parseFloat(item.price);
+        });
+
+        cartTotal.textContent = total.toFixed(2);
+    }
+
+    function deleteItem(index) {
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        renderCart();
+    }
+
+    // أول ما الصفحة تفتح نرندر الكارت
+    renderCart();
+</script> 
+</body>
+</html>
