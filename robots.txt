@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ahmedrabeii.github.io/atmos/sitemap.xml
